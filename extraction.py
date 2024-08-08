@@ -3,8 +3,6 @@ from constants import url
 from urllib import request
 import json
 import logging
-import schedule
-import time
 
 logging.basicConfig(level=logging.INFO)
 
