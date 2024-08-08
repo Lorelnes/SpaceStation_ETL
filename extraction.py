@@ -3,10 +3,18 @@ from constants import url
 from urllib import request
 import json
 import logging
+import schedule
+import time
 
 logging.basicConfig(level=logging.INFO)
 
 def extract_data(url: str) -> dict:
+    '''
+    This function extracts data from the given URL.
+    :param: url
+    :returns: dictionary with the extracted data.
+    '''
+
     try:
         response = request.urlopen(url)
         data = json.dumps(response.read().decode())
@@ -25,9 +33,9 @@ def extract_data(url: str) -> dict:
 
 
 if __name__ == '__main__':
-    schedule.every(1).minutes.do(extract_data)
+    schedule.every(1).minutes.do(lambda: extract_data(url))
     while True:
         schedule.run_pending()
-
+        time.sleep(1)
 
 
