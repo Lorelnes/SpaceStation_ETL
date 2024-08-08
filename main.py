@@ -1,8 +1,9 @@
-from extraction import extract_data
+from extraction import Extraction
 from constants import url
 import time
 
 while True:
-    data = extract_data(url)
+    extractor = Extraction(url)
+    data = extractor.extract_data()
     print(data)
     time.sleep(60)
