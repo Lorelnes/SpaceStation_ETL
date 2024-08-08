@@ -32,10 +32,3 @@ def extract_data(url: str) -> dict:
     return data
 
 
-if __name__ == '__main__':
-    schedule.every(1).minutes.do(lambda: extract_data(url))
-    while True:
-        schedule.run_pending()
-        time.sleep(1)
-
-

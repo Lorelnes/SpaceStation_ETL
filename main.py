@@ -1,8 +1,8 @@
 from extraction import extract_data
 from constants import url
+import time
 
-all_data = []
-for i in range(10):
+while True:
     data = extract_data(url)
-    all_data.append(data)
     print(data)
+    time.sleep(60)
