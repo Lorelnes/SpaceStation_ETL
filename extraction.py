@@ -6,7 +6,7 @@ import logging
 
 logging.basicConfig(level=logging.INFO)
 
-def extract_data(url):
+def extract_data(url: str) -> dict:
     try:
         response = request.urlopen(url)
         data = json.dumps(response.read().decode())
