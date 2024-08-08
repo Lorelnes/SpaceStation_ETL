@@ -24,5 +24,10 @@ def extract_data(url: str) -> dict:
     return data
 
 
+if __name__ == '__main__':
+    schedule.every(1).minutes.do(extract_data)
+    while True:
+        schedule.run_pending()
+
 
 
